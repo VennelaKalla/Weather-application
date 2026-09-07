@@ -34,7 +34,8 @@ body {
     display: flex;
     align-items: center;
 
-    padding: 0 55px;
+    margin: 20px auto 0;
+    padding: 13px 22px;
 
     background: transparent;
     border: none;

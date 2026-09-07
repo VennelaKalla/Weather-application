@@ -1,12 +1,22 @@
+/* =========================
+   RESET
+========================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+
+/* =========================
+   BODY
+========================= */
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
+
     color: white;
 
     background-image: url("./weather background.png");
@@ -36,8 +46,8 @@ body {
     width: 94%;
     max-width: 1350px;
 
-    margin: 18px auto 0;
-    padding: 13px 22px;
+    margin: 10px auto 0;
+    padding: 15px 20px;
 
     display: flex;
     justify-content: space-between;
@@ -57,6 +67,7 @@ body {
 .logo {
     display: flex;
     align-items: center;
+
     gap: 9px;
 
     color: darkblue;
@@ -69,7 +80,7 @@ body {
 }
 
 .logo-mark {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 
@@ -80,21 +91,23 @@ body {
 .nav-links {
     display: flex;
     align-items: center;
+
     gap: 6px;
 }
 
 .nav-links a {
     display: flex;
     align-items: center;
+
     gap: 8px;
-
-    text-decoration: none;
-
-    color: darkblue;
 
     padding: 9px 15px;
 
-    border-radius: 9px;
+    color: darkblue;
+
+    text-decoration: none;
+
+    border-radius: 10px;
 
     font-size: 20px;
     font-weight: bold;
@@ -120,7 +133,7 @@ body {
 .nav-links a:focus {
     color: darkblue !important;
 
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.15);
 
     transform: translateY(-1px);
 
@@ -144,11 +157,9 @@ body {
 .nav-links a.active:hover {
     color: darkblue !important;
 
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.15);
 
     transform: translateY(-1px);
-
-    box-shadow: none;
 }
 
 
@@ -160,7 +171,7 @@ body {
     width: 92%;
     max-width: 1000px;
 
-    min-height: calc(100vh - 100px);
+    min-height: calc(80vh - 80px);
 
     margin: 0 auto;
 
@@ -177,20 +188,20 @@ body {
 ========================= */
 
 .intro-section {
-    text-align: center;
-
     width: 100%;
     max-width: 850px;
 
     margin: 0 auto 38px;
+
+    text-align: center;
 }
 
 .intro-section h1 {
+    margin-bottom: 15px;
+
     color: darkblue;
 
     font-size: 43px;
-
-    margin-bottom: 15px;
 
     text-shadow:
         0 4px 18px rgba(0, 0, 0, 0.45);
@@ -224,322 +235,190 @@ body {
 
 
 /* =========================
-   SEARCH SECTION
+   PROFESSIONAL GLASS SEARCH BAR
 ========================= */
 
-.search-section {
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin-bottom: 35px;
-}
-
-
-/* =========================
-   SEARCH BAR
-========================= */
-
-.search-box {
-    width: 100%;
-    max-width: 620px;
-
-    height: 58px;
-
-    display: flex;
-    align-items: center;
-
-    padding: 5px 7px 5px 20px;
-
-    background: rgba(255, 255, 255, 0.94);
-
-    border: 1px solid rgba(255, 255, 255, 0.8);
-
-    border-radius: 30px;
-
-    box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.18);
-
-    transition: all 0.3s ease;
-}
-
-
-/* Hover */
-
-.search-box:hover {
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.22);
-}
-
-
-/* Focus */
-
-.search-box:focus-within {
-    background: #ffffff;
-
-    border-color: rgba(255, 255, 255, 0.95);
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.22),
-        0 0 0 3px rgba(255, 255, 255, 0.25);
-}
-
-
-/* =========================
-   SEARCH SECTION
-========================= */
- 
-.search-section {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 35px;
-}
- 
- 
-/* =========================
-   PROFESSIONAL SEARCH BAR
-========================= */
- 
 .search-box {
     width: 100%;
     max-width: 720px;
+
+    min-height: 62px;
+
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 6px;
- 
-    /* Transparent Glass Effect */
-    background: rgba(255, 255, 255, 0.15);
- 
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 16px;
- 
-    /* Glass Blur */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
- 
+
+    gap: 8px;
+
+    padding: 5px 6px 5px 20px;
+
+    /* Transparent glass */
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    /* Full pill / circle shape */
+    border-radius: 50px;
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
     box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.15);
- 
+        0 8px 30px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
     transition: all 0.3s ease;
 }
- 
- 
+
+
 /* =========================
-   SEARCH BOX HOVER
+   SEARCH BAR HOVER
 ========================= */
- 
+
 .search-box:hover {
-    background: rgba(255, 255, 255, 0.18);
- 
-    box-shadow:
-        0 12px 35px rgba(0, 0, 0, 0.22);
-}
- 
- 
-/* =========================
-   SEARCH BOX FOCUS
-========================= */
- 
-.search-box:focus-within {
-    background: rgba(255, 255, 255, 0.20);
- 
-    border-color: rgba(255, 255, 255, 0.6);
- 
+    background: rgba(255, 255, 255, 0.09);
+
+    border-color: rgba(255, 255, 255, 0.45);
+
     box-shadow:
         0 12px 35px rgba(0, 0, 0, 0.22),
-        0 0 0 3px rgba(255, 255, 255, 0.12);
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
- 
- 
+
+
+/* =========================
+   SEARCH BAR FOCUS
+========================= */
+
+.search-box:focus-within {
+    background: rgba(255, 255, 255, 0.10);
+
+    border-color: rgba(255, 255, 255, 0.50);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.22),
+        0 0 0 3px rgba(255, 255, 255, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+
 /* =========================
    SEARCH INPUT
 ========================= */
- 
+
 .search-box input {
     flex: 1;
+
     min-width: 0;
- 
+
     height: 52px;
-    padding: 0 20px;
- 
+
+    padding: 0 12px;
+
     border: none;
     outline: none;
-    border-radius: 12px;
- 
+
     background: transparent;
- 
+
     color: #ffffff;
- 
+
     font-size: 16px;
+
     font-weight: 500;
 }
- 
- 
+
+
 /* =========================
    INPUT PLACEHOLDER
 ========================= */
- 
+
 .search-box input::placeholder {
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.80);
+
     opacity: 1;
 }
- 
- 
-/* =========================
-   INPUT FOCUS
-========================= */
- 
-.search-box input:focus {
-    background: transparent;
-}
- 
- 
+
+
 /* =========================
    SEARCH BUTTON
 ========================= */
- 
+
 .search-box button {
     height: 52px;
- 
+
     padding: 0 25px;
- 
+
     display: flex;
     align-items: center;
     justify-content: center;
- 
+
     gap: 9px;
- 
+
     border: none;
-    border-radius: 32px;
- 
+
+    border-radius: 50px;
+
+    /* Previous blue color */
     background: linear-gradient(
         135deg,
         #1677c8,
         #0b5fa5
     );
- 
+
     color: #ffffff;
- 
+
     font-size: 15px;
+
     font-weight: 600;
- 
+
     cursor: pointer;
- 
+
     box-shadow:
         0 5px 14px rgba(11, 95, 165, 0.28);
- 
+
     transition: all 0.25s ease;
 }
- 
- 
+
+
 /* =========================
    SEARCH BUTTON ICON
 ========================= */
- 
+
 .search-box button i {
     font-size: 16px;
 }
- 
- 
+
+
 /* =========================
    SEARCH BUTTON HOVER
 ========================= */
- 
+
 .search-box button:hover {
     transform: translateY(-1px);
- 
+
     background: linear-gradient(
         135deg,
         #1b82d8,
         #0968b5
     );
- 
+
+    color: #ffffff;
+
     box-shadow:
         0 7px 18px rgba(11, 95, 165, 0.35);
 }
- 
- 
+
+
 /* =========================
    SEARCH BUTTON ACTIVE
 ========================= */
- 
+
 .search-box button:active {
     transform: translateY(0);
 }
- 
- 
-/* =========================
-   MOBILE SEARCH
-========================= */
- 
-@media (max-width: 600px) {
- 
-    .search-box {
-        flex-direction: column;
-        padding: 7px;
-        border-radius: 15px;
-    }
- 
-    .search-box input {
-        width: 100%;
-    }
- 
-    .search-box button {
-        width: 100%;
-    }
-}
-
-/* Icon hover */
-
-.search-box button:hover {
-    background: rgba(30, 115, 190, 0.12);
-
-    color: #1677c8;
-
-    transform: scale(1.05);
-}
-
-
-/* Icon click */
-
-.search-box button:active {
-    transform: scale(0.95);
-}
 
 
 /* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-    .search-box {
-        max-width: 100%;
-
-        height: 54px;
-
-        padding-left: 18px;
-    }
-
-    .search-box input {
-        font-size: 15px;
-    }
-
-    .search-box button {
-        width: 44px;
-        height: 44px;
-
-        font-size: 20px;
-    }
-}
-
-/* =========================
-   ERROR / MESSAGE
+   ERROR MESSAGE
 ========================= */
 
 #message {
@@ -567,9 +446,9 @@ body {
 .loader-container {
     display: none;
 
-    text-align: center;
-
     margin: 25px auto;
+
+    text-align: center;
 }
 
 .spinner {
@@ -578,16 +457,13 @@ body {
 
     margin: 0 auto 10px;
 
-    border:
-        4px solid rgba(255, 255, 255, 0.25);
+    border: 4px solid rgba(255, 255, 255, 0.25);
 
-    border-top:
-        4px solid #258aff;
+    border-top: 4px solid #258aff;
 
     border-radius: 50%;
 
-    animation:
-        spin 1s linear infinite;
+    animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
@@ -611,14 +487,12 @@ body {
 
     padding: 25px;
 
-    background:
-        rgba(7, 15, 30, 0.58);
+    background: rgba(7, 15, 30, 0.58);
 
     backdrop-filter: blur(13px);
     -webkit-backdrop-filter: blur(13px);
 
-    border:
-        1px solid rgba(255, 255, 255, 0.23);
+    border: 1px solid rgba(255, 255, 255, 0.23);
 
     border-radius: 20px;
 
@@ -644,9 +518,9 @@ body {
 }
 
 .weather-top h2 {
-    font-size: 28px;
-
     margin-bottom: 5px;
+
+    font-size: 28px;
 }
 
 .weather-top p {
@@ -662,7 +536,6 @@ body {
 
 .weather-status {
     display: flex;
-
     align-items: center;
 
     gap: 8px;
@@ -674,11 +547,11 @@ body {
 }
 
 .weather-status span {
-    text-transform: capitalize;
+    color: #edf4fb;
 
     font-size: 15px;
 
-    color: #edf4fb;
+    text-transform: capitalize;
 }
 
 
@@ -710,27 +583,27 @@ body {
 }
 
 .degree {
-    font-size: 35px;
-
     margin-top: 5px;
+
+    font-size: 35px;
 }
 
 .unit {
-    font-size: 18px;
-
     margin-top: 10px;
 
     color: #d2dce6;
+
+    font-size: 18px;
 }
 
 .temperature-info {
-    text-align: right;
-
     color: #d0dbe5;
 
     font-size: 14px;
 
     line-height: 2;
+
+    text-align: right;
 }
 
 .temperature-info strong {
@@ -749,9 +622,9 @@ body {
 ========================= */
 
 .time-section {
-    text-align: center;
-
     padding: 10px 0 20px;
+
+    text-align: center;
 
     border-bottom:
         1px solid rgba(255, 255, 255, 0.18);
@@ -781,8 +654,7 @@ body {
 .weather-details {
     display: grid;
 
-    grid-template-columns:
-        repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr);
 
     gap: 8px;
 
@@ -790,33 +662,31 @@ body {
 }
 
 .detail-box {
-    text-align: center;
-
     padding: 11px 5px;
 
-    background:
-        rgba(255, 255, 255, 0.055);
+    text-align: center;
 
-    border:
-        1px solid rgba(255, 255, 255, 0.09);
+    background: rgba(255, 255, 255, 0.055);
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
 
     border-radius: 11px;
 }
 
 .detail-icon {
-    font-size: 20px;
-
     margin-bottom: 6px;
+
+    font-size: 20px;
 }
 
 .detail-box h4 {
+    margin-bottom: 5px;
+
     color: #aebbc8;
 
     font-size: 11px;
 
     font-weight: normal;
-
-    margin-bottom: 5px;
 }
 
 .detail-box p {
@@ -831,13 +701,13 @@ body {
 ========================= */
 
 footer {
-    text-align: center;
-
     padding: 20px;
 
     color: #d8e1ea;
 
     font-size: 11px;
+
+    text-align: center;
 
     text-shadow:
         0 2px 8px rgba(0, 0, 0, 0.5);
@@ -855,10 +725,8 @@ footer p + p {
 @media (max-width: 800px) {
 
     .weather-details {
-        grid-template-columns:
-            repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
-
 }
 
 
@@ -867,6 +735,8 @@ footer p + p {
 ========================= */
 
 @media (max-width: 600px) {
+
+    /* Navbar */
 
     .navbar {
         width: 94%;
@@ -878,6 +748,21 @@ footer p + p {
         margin-top: 12px;
     }
 
+    .nav-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .nav-links a {
+        padding: 8px 11px;
+
+        font-size: 16px;
+    }
+
+
+    /* Main */
+
     .main-container {
         width: 92%;
 
@@ -885,6 +770,9 @@ footer p + p {
 
         margin-top: 20px;
     }
+
+
+    /* Intro */
 
     .intro-section {
         margin-bottom: 25px;
@@ -898,41 +786,87 @@ footer p + p {
         font-size: 14px;
     }
 
+
+    /* Search */
+
     .search-box {
-        flex-direction: column;
+        max-width: 100%;
+
+        min-height: 54px;
+
+        padding: 4px 5px 4px 15px;
+
+        border-radius: 50px;
     }
 
     .search-box input {
-        width: 100%;
+        height: 44px;
+
+        padding: 0 8px;
+
+        font-size: 15px;
     }
 
     .search-box button {
-        width: 100%;
+        height: 44px;
+
+        min-width: 44px;
+
+        padding: 0 17px;
+
+        border-radius: 50px;
+
+        font-size: 14px;
     }
+
+
+    /* Weather Card */
 
     .weather-card {
         padding: 18px;
     }
 
+    .weather-top h2 {
+        font-size: 23px;
+    }
+
+
+    /* Temperature */
+
     .temperature-area {
         align-items: flex-start;
+
+        padding-left: 5px;
+        padding-right: 5px;
     }
 
     #temperature {
         font-size: 58px;
     }
 
+    .degree {
+        font-size: 28px;
+    }
+
+    .unit {
+        font-size: 15px;
+    }
+
     .temperature-info {
         font-size: 12px;
     }
+
+
+    /* Time */
 
     #currentTime {
         font-size: 38px;
     }
 
-    .weather-details {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
 
+    /* Weather Details */
+
+    .weather-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
