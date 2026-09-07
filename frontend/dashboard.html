@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Weather Dashboard</title>
+
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <!-- Logo -->
+
+<div class="logo">
+    <i class="fas fa-cloud"></i>
+    <span class="logo-mark">W°</span>
+    <span>Weather App</span>
+</div>
+
+
+        <!-- Navigation -->
+
+        <div class="nav-links">
+
+            <a href="index.html">
+
+                <i class="fas fa-globe"></i>
+
+                <span>Home</span>
+
+            </a>
+
+
+            <a
+                href="dashboard.html"
+                class="active"
+            >
+
+                <i class="fas fa-chart-pie"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         MAIN CONTAINER
+    ========================== -->
+
+    <main class="dashboard-container">
+
+
+        <!-- =========================
+             DASHBOARD HEADER
+        ========================== -->
+
+
+        <!-- =========================
+             STATISTICS
+        ========================== -->
+
+        <div class="stats-container">
+
+
+            <!-- Total Cities -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="fas fa-city"></i>
+                </div>
+
+                <div class="stat-content">
+
+                    <h3>
+                        Cities
+                    </h3>
+
+                    <p id="totalCities">
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Average Temperature -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="fas fa-temperature-half"></i>
+                </div>
+
+                <div class="stat-content">
+
+                    <h3>
+                        Average Temperature
+                    </h3>
+
+                    <p id="averageTemperature">
+                        0 °C
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Average Humidity -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="fas fa-droplet"></i>
+                </div>
+
+                <div class="stat-content">
+
+                    <h3>
+                        Average Humidity
+                    </h3>
+
+                    <p id="averageHumidity">
+                        0%
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             WEATHER HISTORY
+        ========================== -->
+
+        <section class="dashboard-history">
+
+
+            <!-- History Header -->
+
+            <div class="history-header">
+
+
+                <div>
+
+                    <h2>
+                        Weather History
+                    </h2>
+
+                </div>
+
+
+
+                <!-- Dashboard Actions -->
+
+                <div class="dashboard-actions">
+
+
+                    <!-- Search -->
+
+                    <div class="history-search">
+
+                        <i class="fas fa-search"></i>
+
+                        <input
+                            type="text"
+                            id="historySearch"
+                            placeholder="Search city..."
+                        >
+
+                    </div>
+
+
+
+<button
+    type="button"
+    onclick="getDashboardHistory()"
+    class="refresh-btn"
+>
+    <i class="fas fa-arrows-rotate"></i>
+    <span>Refresh</span>
+</button>
+
+<button
+    type="button"
+    onclick="clearDashboardHistory()"
+    class="clear-btn"
+>
+    <i class="fas fa-trash-can"></i>
+    <span>Clear History</span>
+</button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 WEATHER TABLE
+            ========================== -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                <i class="fas fa-city"></i>
+                                City
+                            </th>
+
+                            <th>
+                                <i class="fas fa-temperature-half"></i>
+                                Temperature
+                            </th>
+
+                            <th>
+                                <i class="fas fa-droplet"></i>
+                                Humidity
+                            </th>
+
+                            <th>
+                                <i class="fas fa-cloud-sun"></i>
+                                Weather
+                            </th>
+
+                            <th>
+                                <i class="fas fa-calendar"></i>
+                                Date &amp; Time
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="dashboardTable">
+
+                        <!-- Data will be inserted by dashboard.js -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="dashboard.js"></script>
+
+
+</body>
+
+</html>

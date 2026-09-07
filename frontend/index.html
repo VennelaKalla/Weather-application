@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+<div class="logo">
+    <i class="fas fa-cloud"></i>
+    <span class="logo-mark">W°</span>
+    <span>Weather App</span>
+</div>
+
+<div class="nav-links">
+    <a href="index.html" class="active">
+        <i class="fas fa-globe"></i>
+        <span>Home</span>
+    </a>
+
+<a href="dashboard.html">
+    <i class="fas fa-chart-pie"></i>
+    <span>Dashboard</span>
+</a>
+
+</div>
+
+    </nav>
+
+
+    <main class="main-container">
+
+        <section class="intro-section">
+
+            <h1>Weather at a Glance</h1>
+            <p>
+                Stay informed with accurate, real-time weather
+                updates and forecasts for any location. Access
+                essential insights including temperature,
+                humidity, wind speed, precipitation, and more,
+                helping you make informed decisions and plan
+                your day with confidence.
+            </p>
+
+        </section>
+
+
+        <section class="search-section">
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="cityInput"
+                    placeholder="Enter city name..."
+                    autocomplete="off"
+                >
+
+<button onclick="getWeather()" class="search-btn">
+    <i class="fas fa-search"></i>
+    <span>Search</span>
+</button>
+
+            </div>
+
+            <p id="message"></p>
+
+        </section>
+
+
+        <div id="loader" class="loader-container">
+
+            <div class="spinner"></div>
+
+            <p>Fetching weather data...</p>
+
+        </div>
+
+
+        <section id="weatherResult" class="weather-card">
+
+            <div class="weather-top">
+
+                <div>
+
+                    <h2 id="city">City</h2>
+
+                    <p id="currentDateTime">
+                        Date & Time
+                    </p>
+
+                </div>
+
+                <div class="weather-status">
+
+                    <img
+                        id="weatherIcon"
+                        src=""
+                        alt="Weather"
+                    >
+
+                    <span id="weather">
+                        Weather
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="temperature-area">
+
+                <div class="main-temperature">
+
+                    <span id="temperature">0</span>
+
+                    <span class="degree">°</span>
+
+                    <span class="unit">C</span>
+
+                </div>
+
+
+                <div class="temperature-info">
+
+                    <p>
+                        Feels like
+                        <strong>
+                            <span id="feelsLike">0</span>°
+                        </strong>
+                    </p>
+
+                    <p>
+                        Max
+                        <strong>
+                            <span id="maxTemperature">0</span>°
+                        </strong>
+
+                        <span class="divider">|</span>
+
+                        Min
+                        <strong>
+                            <span id="minTemperature">0</span>°
+                        </strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="time-section">
+
+                <div id="currentTime">--:--</div>
+
+                <div id="currentDate">Date</div>
+
+            </div>
+
+
+            <div class="weather-details">
+
+                <div class="detail-box">
+                    <div class="detail-icon">🌡️</div>
+                    <h4>Pressure</h4>
+                    <p>
+                        <span id="pressure">0</span> hPa
+                    </p>
+                </div>
+
+                <div class="detail-box">
+                    <div class="detail-icon">👁️</div>
+                    <h4>Visibility</h4>
+                    <p>
+                        <span id="visibility">0</span> km
+                    </p>
+                </div>
+
+                <div class="detail-box">
+                    <div class="detail-icon">💨</div>
+                    <h4>Wind Speed</h4>
+                    <p>
+                        <span id="windSpeed">0</span> m/s
+                    </p>
+                </div>
+
+                <div class="detail-box">
+                    <div class="detail-icon">💧</div>
+                    <h4>Humidity</h4>
+                    <p>
+                        <span id="humidity">0</span>%
+                    </p>
+                </div>
+
+                <div class="detail-box">
+                    <div class="detail-icon">💦</div>
+                    <h4>Dew Point</h4>
+                    <p>
+                        <span id="dewPoint">0</span>°
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

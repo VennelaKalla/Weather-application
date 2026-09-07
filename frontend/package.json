@@ -1,0 +1,12 @@
+{
+  "name": "weather-frontend",
+  "version": "1.0.0",
+  "description": "Weather application frontend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
