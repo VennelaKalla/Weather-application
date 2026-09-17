@@ -1,35 +1,14 @@
 const express = require("express");
 const axios = require("axios");
-const mysql = require("mysql2");
 const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-const PORT = 5000;
+
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
-
-
-// =========================
-// MYSQL CONNECTION
-// =========================
-
-const db = mysql.createConnection({
-    host: process.env.MYSQL_HOST || "localhost",
-    user: "root",
-    password: process.env.MYSQL_PASSWORD,
-    database: "weather_db"
-});
-
-db.connect(function (err) {
-    if (err) {
-        console.log("MySQL connection failed:", err.message);
-        return;
-    }
-
-    console.log("MySQL connected successfully");
-});
 
 
 // =========================
@@ -111,87 +90,36 @@ app.get("/weather", async function (req, res) {
 
 
         // =========================
-        // SAVE WEATHER TO MYSQL
+        // SEND RESPONSE
         // =========================
 
-        const sql = `
-            INSERT INTO weather
-            (
-                city,
-                temperature,
-                humidity,
-                weather
-            )
-            VALUES (?, ?, ?, ?)
+        res.json({
 
-            ON DUPLICATE KEY UPDATE
-                temperature = VALUES(temperature),
-                humidity = VALUES(humidity),
-                weather = VALUES(weather),
-                created_at = CURRENT_TIMESTAMP
-        `;
+            message: "Weather data fetched successfully",
 
+            city: cityName,
 
-        db.query(
-            sql,
-            [
-                cityName,
-                temperature,
-                humidity,
-                weatherDescription
-            ],
+            temperature: temperature,
 
-            function (err) {
+            feelsLike: feelsLike,
 
-                if (err) {
+            minTemperature: minTemperature,
 
-                    console.log(
-                        "Database error:",
-                        err.message
-                    );
+            maxTemperature: maxTemperature,
 
-                    return res.status(500).json({
-                        message: "Database error",
-                        error: err.message
-                    });
-                }
+            humidity: humidity,
 
+            pressure: pressure,
 
-                // =========================
-                // SEND RESPONSE
-                // =========================
+            visibility: visibility,
 
-                res.json({
+            windSpeed: windSpeed,
 
-                    message:
-                        "Weather data fetched and saved successfully",
+            weather: weatherDescription,
 
-                    city: cityName,
+            weatherIcon: weatherIcon
 
-                    temperature: temperature,
-
-                    feelsLike: feelsLike,
-
-                    minTemperature: minTemperature,
-
-                    maxTemperature: maxTemperature,
-
-                    humidity: humidity,
-
-                    pressure: pressure,
-
-                    visibility: visibility,
-
-                    windSpeed: windSpeed,
-
-                    weather: weatherDescription,
-
-                    weatherIcon: weatherIcon
-
-                });
-
-            }
-        );
+        });
 
     }
 
@@ -204,8 +132,7 @@ app.get("/weather", async function (req, res) {
 
         res.status(500).json({
 
-            message:
-                "Unable to fetch weather data",
+            message: "Unable to fetch weather data",
 
             error: error.response
                 ? error.response.data
@@ -219,105 +146,16 @@ app.get("/weather", async function (req, res) {
 
 
 // =========================
-// WEATHER HISTORY
-// =========================
-
-app.get("/history", function (req, res) {
-
-    const sql =
-        "SELECT * FROM weather ORDER BY created_at DESC";
-
-
-    db.query(
-        sql,
-
-        function (err, results) {
-
-            if (err) {
-
-                console.log(
-                    "History error:",
-                    err.message
-                );
-
-                return res.status(500).json({
-
-                    message:
-                        "Unable to fetch weather history",
-
-                    error: err.message
-
-                });
-
-            }
-
-
-            res.json(results);
-
-        }
-    );
-
-});
-
-
-// =========================
-// CLEAR HISTORY
-// =========================
-
-app.delete("/history", function (req, res) {
-
-    const sql =
-        "DELETE FROM weather";
-
-
-    db.query(
-        sql,
-
-        function (err) {
-
-            if (err) {
-
-                console.log(
-                    "Clear history error:",
-                    err.message
-                );
-
-                return res.status(500).json({
-
-                    message:
-                        "Unable to clear weather history",
-
-                    error: err.message
-
-                });
-
-            }
-
-
-            res.json({
-
-                message:
-                    "Weather history cleared successfully"
-
-            });
-
-        }
-    );
-
-});
-
-
-// =========================
 // START SERVER
 // =========================
 
 app.listen(
     PORT,
-
+    "0.0.0.0",
     function () {
 
         console.log(
-            "Server running on http://localhost:" + PORT
+            "Server running on port " + PORT
         );
 
     }
